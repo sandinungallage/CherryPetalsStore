@@ -347,21 +347,11 @@ p {
     object-fit: contain;
     padding: 5px; /* Add slight padding to prevent cropping while containing */
     transition: transform 0.3s ease, filter 0.3s ease;
-    border-radius: 50%;
-}
-
-img[alt="TikTok"].social-icon {
-    /* Filters to change black/gold to match var(--color-primary-dark) #ff85a1 */
-    filter: brightness(0) saturate(100%) invert(67%) sepia(21%) saturate(2250%) hue-rotate(305deg) brightness(101%) contrast(102%);
 }
 
 .social-link-btn:hover .social-icon {
     transform: scale(1.1);
     filter: drop-shadow(0 4px 8px rgba(255, 133, 161, 0.4));
-}
-
-.social-link-btn:hover img[alt="TikTok"].social-icon {
-    filter: brightness(0) saturate(100%) invert(67%) sepia(21%) saturate(2250%) hue-rotate(305deg) brightness(101%) contrast(102%) drop-shadow(0 4px 8px rgba(255, 133, 161, 0.4));
 }
 
 .social-name {

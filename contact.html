@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <meta name="description" content="Get in touch with Cherry Petals to order your customized gift boxes.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         .page-header {
@@ -15,30 +18,36 @@
             text-align: center;
             background: radial-gradient(circle at top, #ffe1e8, var(--color-bg));
         }
+
         .page-header h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
         }
+
         .contact-container {
             max-width: 800px;
             margin: 0 auto;
         }
+
         .contact-form {
             display: flex;
             flex-direction: column;
             gap: 20px;
             padding: 40px;
         }
+
         .form-group {
             display: flex;
             flex-direction: column;
             text-align: left;
             gap: 8px;
         }
+
         .form-group label {
             font-weight: 500;
             color: var(--color-text);
         }
+
         .form-control {
             padding: 15px;
             border: 1px solid rgba(255, 133, 161, 0.4);
@@ -48,29 +57,34 @@
             background: rgba(255, 255, 255, 0.7);
             transition: all 0.3s ease;
         }
+
         .form-control:focus {
             outline: none;
             border-color: var(--color-primary-dark);
             box-shadow: 0 0 0 3px rgba(255, 133, 161, 0.2);
         }
+
         textarea.form-control {
             resize: vertical;
             min-height: 150px;
         }
+
         .contact-info {
             text-align: center;
             margin-bottom: 40px;
         }
+
         .contact-info p {
             font-size: 1.1rem;
             margin-bottom: 15px;
         }
     </style>
 </head>
+
 <body>
     <nav class="glass-nav">
         <a href="index.html" class="logo-link">
-            <img src="logo.jpg" alt="Cherry Petals Logo" class="logo-img">
+            <img src="images/logo.jpg" alt="Cherry Petals Logo" class="logo-img">
         </a>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
@@ -84,7 +98,8 @@
         <div class="fade-in">
             <h1>Get in Touch</h1>
             <div class="underline"></div>
-            <p style="margin-top: 30px; font-size: 1.2rem; max-width: 700px; margin-left: auto; margin-right: auto;">We'd love to hear from you. Reach out to coordinate your custom gift box or ask any questions.</p>
+            <p style="margin-top: 30px; font-size: 1.2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                We'd love to hear from you. Reach out to coordinate your custom gift box or ask any questions.</p>
         </div>
     </header>
 
@@ -92,11 +107,14 @@
         <div class="contact-container">
             <div class="contact-info fade-in">
                 <p><strong>Address:</strong> Cherry Petals, Sri Winayalankara Mawatha, Horana</p>
-                <p><strong>WhatsApp:</strong> <a href="https://wa.me/94761359661" target="_blank" style="color: var(--color-primary-dark); text-decoration: none; font-weight: 500;">076 1359661</a></p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/94761359661" target="_blank"
+                        style="color: var(--color-primary-dark); text-decoration: none; font-weight: 500;">076
+                        1359661</a></p>
                 <p><strong>Location:</strong> Delivery Available Nationwide</p>
             </div>
-            
-            <form class="contact-form glass fade-in delay-1" onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will get back to you soon.');">
+
+            <form class="contact-form glass fade-in delay-1"
+                onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will get back to you soon.');">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" class="form-control" placeholder="Your beautiful name" required>
@@ -116,7 +134,8 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" class="form-control" placeholder="How can we help make your gifting perfect?" required></textarea>
+                    <textarea id="message" class="form-control" placeholder="How can we help make your gifting perfect?"
+                        required></textarea>
                 </div>
                 <button type="submit" class="btn-primary" style="margin-top: 10px;">Send Message</button>
             </form>
@@ -130,16 +149,19 @@
                 <p>Your premium gifting destination.</p>
             </div>
             <div class="social-links">
-                <a href="https://www.facebook.com/share/1LGD14v7tM/?mibextid=wwXIfr" target="_blank" class="social-link-btn" aria-label="Facebook">
-                    <img src="Facebook_icon.png" class="social-icon" alt="Facebook">
+                <a href="https://www.facebook.com/share/1LGD14v7tM/?mibextid=wwXIfr" target="_blank"
+                    class="social-link-btn" aria-label="Facebook">
+                    <img src="images/Facebook_icon.png" class="social-icon" alt="Facebook">
                     <span class="social-name">Facebook</span>
                 </a>
-                <a href="https://wa.me/message/VE3ZSJIRPRCED1" target="_blank" class="social-link-btn" aria-label="WhatsApp">
-                    <img src="whatsapp_icon.png" class="social-icon" alt="WhatsApp">
+                <a href="https://wa.me/message/VE3ZSJIRPRCED1" target="_blank" class="social-link-btn"
+                    aria-label="WhatsApp">
+                    <img src="images/whatsapp_icon.png" class="social-icon" alt="WhatsApp">
                     <span class="social-name">WhatsApp</span>
                 </a>
-                <a href="https://www.tiktok.com/@cherrypetals.lk?_r=1&_d=eg89a3f0jg91gm&sec_uid=MS4wLjABAAAACxtYW-KMU2tDMF90jdB__lsEaH--p1K-cIGL5XS49ApT7owlwa-7-KqRl5Gn8ZcJ&share_author_id=7610807435310695444&sharer_language=en&source=h5_m&u_code=db12d05f31i88l&item_author_type=2&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=8C6FF704-BF75-47BC-959C-82381703C71C&user_id=6794592670955717637&sec_user_id=MS4wLjABAAAAMgBlQ-HchUgLqjPi6_clXM1JOXq6gWkn93S_bmZo5ovNsRGbRbEDdUxbeBIaihMK&social_share_type=5&ug_btm=b2878,b5836&utm_campaign=client_share&share_app_id=1233." target="_blank" class="social-link-btn" aria-label="TikTok">
-                    <img src="tiktok_icon.png" class="social-icon" alt="TikTok">
+                <a href="https://www.tiktok.com/@cherrypetals.lk?_r=1&_d=eg89a3f0jg91gm&sec_uid=MS4wLjABAAAACxtYW-KMU2tDMF90jdB__lsEaH--p1K-cIGL5XS49ApT7owlwa-7-KqRl5Gn8ZcJ&share_author_id=7610807435310695444&sharer_language=en&source=h5_m&u_code=db12d05f31i88l&item_author_type=2&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=8C6FF704-BF75-47BC-959C-82381703C71C&user_id=6794592670955717637&sec_user_id=MS4wLjABAAAAMgBlQ-HchUgLqjPi6_clXM1JOXq6gWkn93S_bmZo5ovNsRGbRbEDdUxbeBIaihMK&social_share_type=5&ug_btm=b2878,b5836&utm_campaign=client_share&share_app_id=1233."
+                    target="_blank" class="social-link-btn" aria-label="TikTok">
+                    <img src="images/tiktok_icon.png" class="social-icon" alt="TikTok">
                     <span class="social-name">TikTok</span>
                 </a>
             </div>
@@ -151,4 +173,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
