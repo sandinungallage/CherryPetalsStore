@@ -43,34 +43,170 @@ document.addEventListener("DOMContentLoaded", () => {
     initCart();
 });
 
-// Cart and Toast Storage
-let cartCount = 0;
+// Cart state - array of objects
+let cartItems = [];
+
+// Calculate total items (sum of quantities)
+function getCartCount() {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+}
 
 function updateCartBadges() {
     const badges = document.querySelectorAll('.cart-badge');
+    const count = getCartCount();
     badges.forEach(badge => {
-        badge.textContent = cartCount;
+        badge.textContent = count;
         // Animation
         badge.classList.add('pop');
         setTimeout(() => badge.classList.remove('pop'), 300);
     });
 }
 
-function addToCart(productName) {
-    cartCount++;
-    localStorage.setItem('cartCount', cartCount);
+function addToCart(id, name, price, image) {
+    // Check if item exists in cart
+    const existingItem = cartItems.find(item => item.id === id);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cartItems.push({
+            id: id,
+            name: name,
+            price: price,
+            image: image,
+            quantity: 1
+        });
+    }
+    
+    // Save to local storage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
     updateCartBadges();
-    showToast(`${productName} added to cart!`);
+    showToast(`${name} added to cart!`);
 }
 
 function initCart() {
-    const savedCount = localStorage.getItem('cartCount');
-    if (savedCount) {
-        cartCount = parseInt(savedCount, 10);
-        document.querySelectorAll('.cart-badge').forEach(badge => {
-            badge.textContent = cartCount;
-        });
+    const savedCart = localStorage.getItem('cartItems');
+    if (savedCart) {
+        try {
+            cartItems = JSON.parse(savedCart);
+        } catch (e) {
+            cartItems = [];
+        }
     }
+    
+    updateCartBadges();
+    
+    // If we are on the cart page, render the items
+    if (window.location.pathname.includes('cart.html')) {
+        renderCartPage();
+    }
+}
+
+// Cart Page Methods
+function renderCartPage() {
+    const container = document.getElementById('cart-items-container');
+    if (!container) return;
+
+    if (cartItems.length === 0) {
+        container.innerHTML = `
+            <div class="empty-cart-message">
+                <h3>Your cart is beautifully empty!</h3>
+                <p>Looks like you haven't added any elegant gifts yet.</p>
+                <br>
+                <a href="products.html" class="btn-primary">Browse Collections</a>
+            </div>
+        `;
+        updateCartTotals();
+        return;
+    }
+
+    let html = '';
+    cartItems.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        html += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-image" onerror="this.src='images/gift_boxes_cherry.png'">
+                <div class="cart-item-details">
+                    <h3 class="cart-item-title">${item.name}</h3>
+                    <div class="cart-item-price">LKR ${item.price.toLocaleString()}</div>
+                </div>
+                <div class="cart-item-actions">
+                    <div class="quantity-control">
+                        <button class="quantity-btn" onclick="updateQuantity('${item.id}', -1)" aria-label="Decrease quantity">−</button>
+                        <span class="quantity-value">${item.quantity}</span>
+                        <button class="quantity-btn" onclick="updateQuantity('${item.id}', 1)" aria-label="Increase quantity">+</button>
+                    </div>
+                    <button class="remove-btn" onclick="removeFromCart('${item.id}')" aria-label="Remove item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+    updateCartTotals();
+}
+
+function updateQuantity(id, change) {
+    const itemIndex = cartItems.findIndex(item => item.id === id);
+    if (itemIndex > -1) {
+        cartItems[itemIndex].quantity += change;
+        
+        // Remove item if quantity falls to 0
+        if (cartItems[itemIndex].quantity <= 0) {
+            cartItems.splice(itemIndex, 1);
+        }
+        
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        updateCartBadges();
+        renderCartPage();
+    }
+}
+
+function removeFromCart(id) {
+    cartItems = cartItems.filter(item => item.id !== id);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    updateCartBadges();
+    renderCartPage();
+}
+
+function updateCartTotals() {
+    const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    
+    const subtotalEl = document.getElementById('summary-subtotal');
+    const totalEl = document.getElementById('summary-total');
+    
+    if (subtotalEl && totalEl) {
+        subtotalEl.textContent = `LKR ${subtotal.toLocaleString()}`;
+        totalEl.textContent = `LKR ${subtotal.toLocaleString()}`;
+    }
+}
+
+function checkout() {
+    if (cartItems.length === 0) {
+        alert("Your cart is empty! Add some elegant products before checking out.");
+        return;
+    }
+    
+    // Formatting a beautiful WhatsApp message
+    let message = "🌸 *New Order from Cherry Petals* 🌸\n\n";
+    let total = 0;
+    
+    cartItems.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        message += `• ${item.name}\n  Qty: ${item.quantity}  |  LKR ${itemTotal.toLocaleString()}\n`;
+    });
+    
+    message += `\n*Order Total: LKR ${total.toLocaleString()}*`;
+    message += "\n\nI would like to proceed with checking out.";
+    
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/94761359661?text=${encodedMessage}`, '_blank');
 }
 
 function createToastContainer() {
