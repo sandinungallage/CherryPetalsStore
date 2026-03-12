@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Cherry Petals</title>
-    <meta name="description" content="Get in touch with Cherry Petals to order your customized gift boxes.">
+    <title>Login | Cherry Petals</title>
+    <meta name="description" content="Sign in to your Cherry Petals account.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,16 +24,17 @@
             margin-bottom: 20px;
         }
 
-        .contact-container {
-            max-width: 800px;
+        .auth-container {
+            max-width: 500px;
             margin: 0 auto;
+            text-align: center;
         }
 
-        .contact-form {
+        .auth-card {
+            padding: 50px 40px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            padding: 40px;
+            gap: 25px;
         }
 
         .form-group {
@@ -64,19 +65,79 @@
             box-shadow: 0 0 0 3px rgba(255, 133, 161, 0.2);
         }
 
-        textarea.form-control {
-            resize: vertical;
-            min-height: 150px;
+        .auth-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-top: -5px;
         }
 
-        .contact-info {
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: var(--color-primary-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: var(--color-text);
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
             text-align: center;
-            margin-bottom: 40px;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            margin: 10px 0;
         }
 
-        .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid rgba(255, 183, 197, 0.4);
+        }
+
+        .auth-divider span {
+            padding: 0 15px;
+        }
+
+        .social-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 183, 197, 0.6);
+            padding: 14px;
+        }
+
+        .auth-footer {
+            text-align: center;
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        .auth-footer a {
+            color: var(--color-primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        
+        .auth-footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -90,8 +151,8 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="products.html">Products</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="active">Login</a></li>
             <li>
                 <a href="cart.html" class="cart-link" id="cart-nav-link" aria-label="Cart">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cart-icon">
@@ -107,49 +168,51 @@
 
     <header class="page-header">
         <div class="fade-in">
-            <h1>Get in Touch</h1>
+            <h1>Welcome Back</h1>
             <div class="underline"></div>
             <p style="margin-top: 30px; font-size: 1.2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                We'd love to hear from you. Reach out to coordinate your custom gift box or ask any questions.</p>
+                Sign in to access your beautiful customized gifts.</p>
         </div>
     </header>
 
-    <section class="section-padding" style="padding-top: 60px;">
-        <div class="contact-container">
-            <div class="contact-info fade-in">
-                <p><strong>Address:</strong> Cherry Petals, Sri Winayalankara Mawatha, Horana</p>
-                <p><strong>WhatsApp:</strong> <a href="https://wa.me/94761359661" target="_blank"
-                        style="color: var(--color-primary-dark); text-decoration: none; font-weight: 500;">076
-                        1359661</a></p>
-                <p><strong>Location:</strong> Delivery Available Nationwide</p>
+    <section class="section-padding" style="padding-top: 60px; min-height: 50vh;">
+        <div class="auth-container">
+            <div class="auth-card glass fade-in delay-1">
+                <form onsubmit="mockLogin(event);" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="youremail@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+                    <div class="auth-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary" style="padding: 16px; font-size: 1.1rem; width: 100%;">Sign In</button>
+                </form>
+                
+                <div class="auth-divider">
+                    <span>OR</span>
+                </div>
+                
+                <div>
+                    <button class="btn-outline social-btn" onclick="mockLogin()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Continue with Google
+                    </button>
+                </div>
+                
+                <p class="auth-footer">Don't have an account? <a href="signup.html">Sign Up</a></p>
             </div>
-
-            <form class="contact-form glass fade-in delay-1"
-                onsubmit="event.preventDefault(); alert('Thank you for reaching out! We will get back to you soon.');">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="Your beautiful name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" class="form-control" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Inquiry Type</label>
-                    <select id="subject" class="form-control">
-                        <option>Custom Gift Box Order</option>
-                        <option>Product Question</option>
-                        <option>Partnership/Wholesale</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" class="form-control" placeholder="How can we help make your gifting perfect?"
-                        required></textarea>
-                </div>
-                <button type="submit" class="btn-primary" style="margin-top: 10px;">Send Message</button>
-            </form>
         </div>
     </section>
 

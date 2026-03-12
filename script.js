@@ -39,9 +39,93 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, 100);
 
-    // Initialize cart count from localStorage
+    // Initialize auth status on page load
+    checkAuthStatus();
+    
+    // Initialize cart count and render cart page from localStorage
     initCart();
 });
+
+// Authentication Logic
+function mockLogin(event) {
+    if (event) event.preventDefault();
+    
+    // Simulate setting auth tokens/details
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userName', 'Jane Doe');
+    localStorage.setItem('userEmail', 'jane@example.com');
+    
+    // Redirect cleanly
+    window.location.href = 'index.html';
+}
+
+function mockSignup(event) {
+    if (event) event.preventDefault();
+    
+    // Capture user details if available
+    const fNameInput = document.getElementById('fname');
+    const lNameInput = document.getElementById('lname');
+    const emailInput = document.getElementById('email');
+    
+    const fullName = (fNameInput && lNameInput) 
+        ? `${fNameInput.value} ${lNameInput.value}` 
+        : 'Jane Doe';
+    const email = emailInput ? emailInput.value : 'jane@example.com';
+    
+    // Simulate setting auth tokens/details
+    localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('userName', fullName);
+    localStorage.setItem('userEmail', email);
+
+    // Redirect cleanly
+    window.location.href = 'index.html';
+}
+
+function mockLogout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
+    
+    // Reset cart if desired, or keep it. We'll keep it for now.
+    
+    window.location.href = 'index.html';
+}
+
+function checkAuthStatus() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const navLinks = document.querySelectorAll('.nav-links');
+    
+    // Update the nav menus across all pages
+    navLinks.forEach(ul => {
+        // Find the login link list item
+        const listItems = ul.querySelectorAll('li');
+        listItems.forEach(li => {
+            const a = li.querySelector('a');
+            if (a && (a.getAttribute('href') === 'login.html' || a.getAttribute('href') === 'profile.html')) {
+                if (isLoggedIn) {
+                    a.setAttribute('href', 'profile.html');
+                    // Check if current page is profile to keep it active
+                    const isActive = window.location.pathname.includes('profile.html') ? 'active' : '';
+                    
+                    a.innerHTML = `
+                        <div style="display: flex; align-items: center; gap: 6px;" class="${isActive}">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Profile
+                        </div>
+                    `;
+                } else {
+                    a.setAttribute('href', 'login.html');
+                    const isActive = window.location.pathname.includes('login.html') ? 'active' : '';
+                    a.textContent = 'Login';
+                    a.className = isActive;
+                }
+            }
+        });
+    });
+}
 
 // Cart state - array of objects
 let cartItems = [];
