@@ -409,3 +409,21 @@ function changeProductImage(element, imgId, newSrc) {
     swatches.forEach(swatch => swatch.classList.remove('active'));
     element.classList.add('active');
 }
+
+// Function to toggle password visibility
+function togglePasswordVisibility(inputId) {
+    const input = document.getElementById(inputId);
+    const wrapper = input.closest('.password-wrapper');
+    const eyeIcon = wrapper.querySelector('.eye-icon');
+    const eyeOffIcon = wrapper.querySelector('.eye-off-icon');
+    
+    if (input.type === 'password') {
+        input.type = 'text';
+        if (eyeIcon) eyeIcon.style.display = 'none';
+        if (eyeOffIcon) eyeOffIcon.style.display = 'block';
+    } else {
+        input.type = 'password';
+        if (eyeIcon) eyeIcon.style.display = 'block';
+        if (eyeOffIcon) eyeOffIcon.style.display = 'none';
+    }
+}
