@@ -110,43 +110,86 @@
         </div>
         <div class="product-grid">
             <div class="product-card glass fade-in hover-effect">
-                <div class="product-image gallery-container">
-                    <img id="main-product-img-home" src="images/box_pink.jpg" alt="Theme Gift Box"
-                        class="active-product-img" onerror="this.src='images/gift_boxes_cherry.png'" />
+                <div class="product-image">
+                    <img src="images/box_pink.jpg" alt="Blushing Pink Essentials Box" onerror="this.src='images/gift_boxes_cherry.png'" />
                 </div>
                 <div class="product-info">
                     <div class="product-header">
-                        <h3>Signature Theme Box</h3>
+                        <h3>Blushing Pink Essentials Box</h3>
                         <span class="price-tag">LKR 2,500</span>
                     </div>
-                    <p>A beautifully curated, color-coordinated box featuring a plush, tumbler, and self-care
-                        essentials.</p>
-                    <div class="color-selector">
-                        <p class="selector-label">Select Color:</p>
-                        <div class="swatches">
-                            <div class="color-swatch active" style="background-color: #ffb7c5;"
-                                onclick="changeProductImage(this, 'main-product-img-home', 'images/box_pink.jpg')">
-                            </div>
-                            <div class="color-swatch" style="background-color: #89c4f4;"
-                                onclick="changeProductImage(this, 'main-product-img-home', 'images/box_blue.jpg')">
-                            </div>
-                            <div class="color-swatch" style="background-color: #b2734a;"
-                                onclick="changeProductImage(this, 'main-product-img-home', 'images/box_brown.jpg')">
-                            </div>
-                            <div class="color-swatch" style="background-color: #cda4de;"
-                                onclick="changeProductImage(this, 'main-product-img-home', 'images/box_purple.jpg')">
-                            </div>
-                            <div class="color-swatch" style="background-color: #fceea7;"
-                                onclick="changeProductImage(this, 'main-product-img-home', 'images/box_yellow.jpg')">
-                            </div>
-                            <div class="color-swatch" style="background-color: #a8e6cf;"
-                                onclick="changeProductImage(this, 'main-product-img-home', 'images/box_green.jpg')">
-                            </div>
-                        </div>
+                    <p>A beautifully curated, sweet pink-themed box featuring a cozy plush, a chic tumbler, and lovely self-care essentials.</p>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('theme-box-pink', 'Blushing Pink Essentials Box', 2500, 'images/box_pink.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass fade-in delay-1 hover-effect">
+                <div class="product-image">
+                    <img src="images/box_blue.jpg" alt="Ocean Breeze Blue Theme Box" onerror="this.src='images/gift_boxes_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Ocean Breeze Blue Theme Box</h3>
+                        <span class="price-tag">LKR 2,500</span>
                     </div>
-                    <button class="btn-outline add-to-cart-btn"
-                        onclick="addToCart('theme-box', 'Signature Theme Box', 2500, 'images/box_pink.jpg')">Add to
-                        Cart</button>
+                    <p>Dive into calmness with this aesthetic blue-coordinated box, complete with a snug plushie, hydration tumbler, and soothing treats.</p>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('theme-box-blue', 'Ocean Breeze Blue Theme Box', 2500, 'images/box_blue.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass fade-in delay-2 hover-effect">
+                <div class="product-image">
+                    <img src="images/box_brown.jpg" alt="Warm Mocha Aesthetic Box" onerror="this.src='images/gift_boxes_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Warm Mocha Aesthetic Box</h3>
+                        <span class="price-tag">LKR 2,500</span>
+                    </div>
+                    <p>A sophisticated, earthy brown-toned collection featuring a premium tumbler, soft plush, and warm self-care goodies.</p>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('theme-box-brown', 'Warm Mocha Aesthetic Box', 2500, 'images/box_brown.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass fade-in delay-3 hover-effect">
+                <div class="product-image">
+                    <img src="images/box_purple.jpg" alt="Lavender Dream Theme Box" onerror="this.src='images/gift_boxes_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Lavender Dream Theme Box</h3>
+                        <span class="price-tag">LKR 2,500</span>
+                    </div>
+                    <p>Experience tranquility with our gorgeous purple box, packing a dreamy plush, matching tumbler, and relaxing everyday items.</p>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('theme-box-purple', 'Lavender Dream Theme Box', 2500, 'images/box_purple.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass fade-in delay-4 hover-effect">
+                <div class="product-image">
+                    <img src="images/box_yellow.jpg" alt="Sunshine Yellow Gift Box" onerror="this.src='images/gift_boxes_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Sunshine Yellow Gift Box</h3>
+                        <span class="price-tag">LKR 2,500</span>
+                    </div>
+                    <p>Brighten someone's day with this vibrant, cheerful yellow-themed set, featuring a cute plush, aesthetic tumbler, and bright accessories.</p>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('theme-box-yellow', 'Sunshine Yellow Gift Box', 2500, 'images/box_yellow.jpg')">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="product-card glass fade-in hover-effect">
+                <div class="product-image">
+                    <img src="images/box_green.jpg" alt="Minty Fresh Green Box" onerror="this.src='images/gift_boxes_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Minty Fresh Green Box</h3>
+                        <span class="price-tag">LKR 2,500</span>
+                    </div>
+                    <p>A refreshing, aesthetically pleasing pastel green collection containing a soft plush companion, minimalist tumbler, and green essentials.</p>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('theme-box-green', 'Minty Fresh Green Box', 2500, 'images/box_green.jpg')">Add to Cart</button>
                 </div>
             </div>
 
@@ -312,6 +355,36 @@
                     </div>
                     <button class="btn-outline add-to-cart-btn"
                         onclick="addToCart('cute-notebook', 'Aesthetic Pastel Notebook', 400, 'images/Notebook1.jpg')">Add
+                        to Cart</button>
+                </div>
+            </div>
+            <div class="product-card glass fade-in delay-3 hover-effect">
+                <div class="product-image gallery-container">
+                    <img id="watch-img-home" src="images/Watch1.jpg" alt="Elegant Minimalist Watch"
+                        class="active-product-img" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Elegant Minimalist Watch</h3>
+                        <span class="price-tag">LKR 1,000</span>
+                    </div>
+                    <p>Enhance your everyday look with this beautiful, classic watch. Perfect for any occasion!</p>
+                    <div class="color-selector">
+                        <p class="selector-label">Select Color:</p>
+                        <div class="swatches">
+                            <div class="color-swatch active" style="background-color: #e0e0e0;"
+                                onclick="changeProductImage(this, 'watch-img-home', 'images/Watch1.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #c0c0c0;"
+                                onclick="changeProductImage(this, 'watch-img-home', 'images/Watch2.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #ffd700;"
+                                onclick="changeProductImage(this, 'watch-img-home', 'images/Watch3.jpg')">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline add-to-cart-btn"
+                        onclick="addToCart('women-watch', 'Elegant Minimalist Watch', 1000, 'images/Watch1.jpg')">Add
                         to Cart</button>
                 </div>
             </div>
