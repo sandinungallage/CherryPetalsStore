@@ -140,6 +140,7 @@
             text-decoration: underline;
         }
     </style>
+    </style>
 </head>
 
 <body>
@@ -179,7 +180,7 @@
     <section class="section-padding" style="padding-top: 60px; min-height: 50vh;">
         <div class="auth-container">
             <div class="auth-card glass fade-in delay-1">
-                <form onsubmit="mockLogin(event);" style="display: flex; flex-direction: column; gap: 20px;">
+                <form id="loginForm" style="display: flex; flex-direction: column; gap: 20px;">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" class="form-control" placeholder="youremail@example.com"
@@ -223,8 +224,9 @@
                     <span>OR</span>
                 </div>
 
+                <!-- Custom Google Button (using Firebase popup) -->
                 <div>
-                    <button class="btn-outline social-btn" onclick="mockLogin()">
+                    <button type="button" class="btn-outline social-btn" onclick="loginWithGoogle()">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
@@ -270,6 +272,67 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- Firebase scripts -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+
+        // Your Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyCRZkYkxB7NFGQMycgPpV9Gz12iA52sqrQ",
+            authDomain: "cherry-petals.firebaseapp.com",
+            projectId: "cherry-petals",
+            storageBucket: "cherry-petals.firebasestorage.app",
+            messagingSenderId: "871524343202",
+            appId: "1:871524343202:web:ed607a7a8bc276f2f526fb",
+            measurementId: "G-QHKER9MSLT"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const googleProvider = new GoogleAuthProvider();
+
+        // Firebase Google Login
+        window.loginWithGoogle = async () => {
+            try {
+                const result = await signInWithPopup(auth, googleProvider);
+                alert("Logged in as: " + result.user.email);
+                
+                // Set app state
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userName', result.user.displayName || result.user.email.split('@')[0]);
+                localStorage.setItem('userEmail', result.user.email);
+                window.location.href = 'index.html';
+            } catch (error) {
+                alert(error.message);
+            }
+        };
+
+        // Firebase Email/password Login
+        window.loginWithEmail = async (email, password) => {
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                alert("Logged in as: " + userCredential.user.email);
+                
+                // Set app state
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userName', userCredential.user.displayName || userCredential.user.email.split('@')[0]);
+                localStorage.setItem('userEmail', userCredential.user.email);
+                window.location.href = 'index.html';
+            } catch (error) {
+                alert(error.message);
+            }
+        };
+
+        // Connect Form Handler
+        const loginForm = document.getElementById("loginForm");
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            loginWithEmail(email, password);
+        });
+    </script>
 </body>
 
 </html>

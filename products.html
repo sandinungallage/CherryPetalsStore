@@ -111,6 +111,57 @@
                     <button class="btn-outline add-to-cart-btn" onclick="addToCart('cute-items', 'Ladies Cute Items', 1500, 'images/cute_items_cherry.png')">Add to Cart</button>
                 </div>
             </div>
+            <div class="product-card glass fade-in delay-2 hover-effect">
+                <div class="product-image gallery-container">
+                    <img id="sunglass-img-products" src="images/Sunglass1.jpg" alt="Chic Sunnies"
+                        class="active-product-img" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Chic Sunnies</h3>
+                        <span class="price-tag">LKR 700</span>
+                    </div>
+                    <p>Complete your look with these gorgeous, aesthetic sunglasses. Perfect for any sunny day or trendy outfit!</p>
+                    <div class="color-selector">
+                        <p class="selector-label">Select Style:</p>
+                        <div class="swatches">
+                            <div class="color-swatch active" style="background-image: url('images/Sunglass1.jpg'); background-size: cover;"
+                                onclick="changeProductImage(this, 'sunglass-img-products', 'images/Sunglass1.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-image: url('images/Sunglass2.jpg'); background-size: cover;"
+                                onclick="changeProductImage(this, 'sunglass-img-products', 'images/Sunglass2.jpg')">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('chic-sunnies', 'Chic Sunnies', 700, 'images/Sunglass1.jpg')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card glass fade-in delay-3 hover-effect">
+                <div class="product-image">
+                    <img src="images/pinkstich.jpg" alt="Sweetheart Pink Stitch" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Sweetheart Pink Stitch</h3>
+                        <span class="price-tag">LKR 1,300</span>
+                    </div>
+                    <p>Cuddle up with this incredibly soft and adorable pink Stitch plushie! A perfect companion and cute room decor.</p>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('pink-stitch', 'Sweetheart Pink Stitch', 1300, 'images/pinkstich.jpg')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card glass fade-in delay-4 hover-effect">
+                <div class="product-image">
+                    <img src="images/labubu.jpg" alt="Mystery Color Labubu" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Mystery Color Labubu</h3>
+                        <span class="price-tag">LKR 1,199</span>
+                    </div>
+                    <p>Unbox the magic with this adorable Labubu figure! Which mystery color will you get? It's a sweet surprise!</p>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('labubu', 'Mystery Color Labubu', 1199, 'images/labubu.jpg')">Add to Cart</button>
+                </div>
+            </div>
         </div>
     </section>
 
