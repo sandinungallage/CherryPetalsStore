@@ -217,6 +217,37 @@
                     <button class="btn-outline add-to-cart-btn" onclick="addToCart('jhumki-earrings', 'Elegant Jhumki Earrings', 300, 'images/earings.jpg')">Add to Cart</button>
                 </div>
             </div>
+            <div class="product-card glass fade-in delay-2 hover-effect">
+                <div class="product-image gallery-container">
+                    <img id="notebook-img-products" src="images/Notebook1.jpg" alt="Aesthetic Pastel Notebook"
+                        class="active-product-img" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Aesthetic Pastel Notebook</h3>
+                        <span class="price-tag">LKR 400</span>
+                    </div>
+                    <p>Jot down your dreams and ideas in this beautiful aesthetic notebook. Available in four lovely pastel colors!</p>
+                    <div class="color-selector">
+                        <p class="selector-label">Select Color:</p>
+                        <div class="swatches">
+                            <div class="color-swatch active" style="background-color: #ffb7c5;"
+                                onclick="changeProductImage(this, 'notebook-img-products', 'images/Notebook1.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #89c4f4;"
+                                onclick="changeProductImage(this, 'notebook-img-products', 'images/Notebook2.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #a8e6cf;"
+                                onclick="changeProductImage(this, 'notebook-img-products', 'images/Notebook3.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #cda4de;"
+                                onclick="changeProductImage(this, 'notebook-img-products', 'images/Notebook4.jpg')">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline add-to-cart-btn" onclick="addToCart('cute-notebook', 'Aesthetic Pastel Notebook', 400, 'images/Notebook1.jpg')">Add to Cart</button>
+                </div>
+            </div>
         </div>
     </section>
 
