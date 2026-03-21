@@ -429,7 +429,7 @@
             </div>
             <div class="product-card glass fade-in hover-effect">
                 <div class="product-image">
-                    <img src="images/labubu teddy.jpg" alt="Cuddly Labubu Teddy Plush" onerror="this.src='images/cute_items_cherry.png'" />
+                    <img src="images/product images/labubu teddy.jpg" alt="Cuddly Labubu Teddy Plush" onerror="this.src='images/cute_items_cherry.png'" />
                 </div>
                 <div class="product-info">
                     <div class="product-header">
@@ -438,13 +438,13 @@
                     </div>
                     <p>Snuggle up with this adorable, ultra-soft Labubu teddy. The perfect aesthetic plush companion for your room!</p>
                     <button class="btn-outline add-to-cart-btn"
-                        onclick="addToCart('labubu-teddy', 'Cuddly Labubu Teddy Plush', 750, 'images/labubu teddy.jpg')">Add
+                        onclick="addToCart('labubu-teddy', 'Cuddly Labubu Teddy Plush', 750, 'images/product images/labubu teddy.jpg')">Add
                         to Cart</button>
                 </div>
             </div>
             <div class="product-card glass fade-in delay-2 hover-effect">
                 <div class="product-image gallery-container">
-                    <img id="hair-pin-img-home" src="images/Hair pin1.jpg" alt="Kawaii Crochet Hair Pins"
+                    <img id="hair-pin-img-home" src="images/product images/Hair pin1.jpg" alt="Kawaii Crochet Hair Pins"
                         class="active-product-img" onerror="this.src='images/cute_items_cherry.png'" />
                 </div>
                 <div class="product-info">
@@ -457,27 +457,27 @@
                         <p class="selector-label">Select Color:</p>
                         <div class="swatches">
                             <div class="color-swatch active" style="background-color: #fdef80;"
-                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/Hair pin1.jpg')">
+                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/product images/Hair pin1.jpg')">
                             </div>
                             <div class="color-swatch" style="background-color: #fffdd0;"
-                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/Hair pin2.jpg')">
+                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/product images/Hair pin2.jpg')">
                             </div>
                             <div class="color-swatch" style="background-color: #ffb0a6;"
-                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/Hair pin3.jpg')">
+                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/product images/Hair pin3.jpg')">
                             </div>
                             <div class="color-swatch" style="background-color: #556b2f;"
-                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/Hair pin4.jpg')">
+                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/product images/Hair pin4.jpg')">
                             </div>
                             <div class="color-swatch" style="background-color: #bfe3b4;"
-                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/Hair pin5.jpg')">
+                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/product images/Hair pin5.jpg')">
                             </div>
                             <div class="color-swatch" style="background-color: #add8e6;"
-                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/Hair pin6.jpg')">
+                                onclick="changeProductImage(this, 'hair-pin-img-home', 'images/product images/Hair pin6.jpg')">
                             </div>
                         </div>
                     </div>
                     <button class="btn-outline add-to-cart-btn"
-                        onclick="addToCart('hair-pin', 'Kawaii Crochet Hair Pins', 200, 'images/Hair pin1.jpg')">Add
+                        onclick="addToCart('hair-pin', 'Kawaii Crochet Hair Pins', 200, 'images/product images/Hair pin1.jpg')">Add
                         to Cart</button>
                 </div>
             </div>
@@ -556,7 +556,7 @@
             </div>
             <div class="product-card glass fade-in delay-4 hover-effect">
                 <div class="product-image">
-                    <img src="images/hightlight set.jpg" alt="Kawaii Pastel Highlighters" onerror="this.src='images/cute_items_cherry.png'" />
+                    <img src="images/product images/hightlight set.jpg" alt="Kawaii Pastel Highlighters" onerror="this.src='images/cute_items_cherry.png'" />
                 </div>
                 <div class="product-info">
                     <div class="product-header">
@@ -574,7 +574,7 @@
                             var name = isSet ? 'Kawaii Pastel Highlighters (Full Set)' : 'Kawaii Pastel Highlighter (' + color + ')';
                             document.getElementById('highlighter-name-home').innerText = name;
                             document.getElementById('highlighter-price-home').innerText = isSet ? 'LKR 750' : 'LKR 140';
-                            document.getElementById('highlighter-btn-home').setAttribute('onclick', `addToCart('highlighter-${isSet ? 'set' : 'single-' + color.toLowerCase()}', '${name}', ${isSet ? 750 : 140}, 'images/hightlight set.jpg')`);
+                            document.getElementById('highlighter-btn-home').setAttribute('onclick', `addToCart('highlighter-${isSet ? 'set' : 'single-' + color.toLowerCase()}', '${name}', ${isSet ? 750 : 140}, 'images/product images/hightlight set.jpg')`);
                         ">
                             <option value="set">Full Set (LKR 750)</option>
                             <option value="single">Single Piece (LKR 140)</option>
@@ -587,7 +587,7 @@
                                 var color = this.value;
                                 var name = 'Kawaii Pastel Highlighter (' + color + ')';
                                 document.getElementById('highlighter-name-home').innerText = name;
-                                document.getElementById('highlighter-btn-home').setAttribute('onclick', `addToCart('highlighter-single-${color.toLowerCase()}', '${name}', 140, 'images/hightlight set.jpg')`);
+                                document.getElementById('highlighter-btn-home').setAttribute('onclick', `addToCart('highlighter-single-${color.toLowerCase()}', '${name}', 140, 'images/product images/hightlight set.jpg')`);
                             }
                         ">
                             <option value="Purple">Purple</option>
@@ -598,7 +598,7 @@
                             <option value="Pink">Pink</option>
                         </select>
                     </div>
-                    <button id="highlighter-btn-home" class="btn-outline add-to-cart-btn" onclick="addToCart('highlighter-set', 'Kawaii Pastel Highlighters (Full Set)', 750, 'images/hightlight set.jpg')">Add to Cart</button>
+                    <button id="highlighter-btn-home" class="btn-outline add-to-cart-btn" onclick="addToCart('highlighter-set', 'Kawaii Pastel Highlighters (Full Set)', 750, 'images/product images/hightlight set.jpg')">Add to Cart</button>
                 </div>
             </div>
             <div class="product-card glass fade-in delay-2 hover-effect">
