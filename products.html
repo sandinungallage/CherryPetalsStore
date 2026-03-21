@@ -478,15 +478,203 @@
             </div>
             <div class="product-card glass fade-in delay-3 hover-effect">
                 <div class="product-image">
-                    <img src="images/teddy.jpg" alt="Snuggle Fluff Teddy Bear" onerror="this.src='images/cute_items_cherry.png'" />
+                    <img src="images/teddy.jpg" alt="Snuggle Fluff Kuromi" onerror="this.src='images/cute_items_cherry.png'" />
                 </div>
                 <div class="product-info">
                     <div class="product-header">
-                        <h3>Snuggle Fluff Teddy Bear</h3>
+                        <h3>Snuggle Fluff Kuromi</h3>
                         <span class="price-tag" style="color: #ff6b6b;">Sold Out</span>
                     </div>
-                    <p>Meet your new best friend! This incredibly soft, aesthetic teddy bear is the perfect cuddle companion. Currently resting up and out of stock!</p>
+                    <p>Meet your new best friend! This incredibly soft, aesthetic Kuromi plush is the perfect cuddle companion. Currently resting up and out of stock!</p>
                     <button class="btn-outline add-to-cart-btn" style="cursor: not-allowed; opacity: 0.6; pointer-events: none;" disabled>Out of Stock</button>
+                </div>
+            </div>
+            <div class="product-card glass fade-in delay-4 hover-effect">
+                <div class="product-image">
+                    <img src="images/hightlight set.jpg" alt="Kawaii Pastel Highlighters" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3 id="highlighter-name-products">Kawaii Pastel Highlighters (Full Set)</h3>
+                        <span id="highlighter-price-products" class="price-tag">LKR 750</span>
+                    </div>
+                    <p>Make your notes aesthetic with these pastel highlighters! Choose a full set or a single piece.</p>
+                    <div class="style-selector" style="margin-bottom: 15px;">
+                        <p class="selector-label">Select Option:</p>
+                        <select id="highlighter-type-products" class="dropdown-style" onchange="
+                            var isSet = this.value === 'set';
+                            var colorSelector = document.getElementById('highlighter-color-container-products');
+                            colorSelector.style.display = isSet ? 'none' : 'block';
+                            var color = document.getElementById('highlighter-color-products').value;
+                            var name = isSet ? 'Kawaii Pastel Highlighters (Full Set)' : 'Kawaii Pastel Highlighter (' + color + ')';
+                            document.getElementById('highlighter-name-products').innerText = name;
+                            document.getElementById('highlighter-price-products').innerText = isSet ? 'LKR 750' : 'LKR 140';
+                            document.getElementById('highlighter-btn-products').setAttribute('onclick', `addToCart('highlighter-${isSet ? 'set' : 'single-' + color.toLowerCase()}', '${name}', ${isSet ? 750 : 140}, 'images/hightlight set.jpg')`);
+                        ">
+                            <option value="set">Full Set (LKR 750)</option>
+                            <option value="single">Single Piece (LKR 140)</option>
+                        </select>
+                    </div>
+                    <div id="highlighter-color-container-products" class="style-selector" style="margin-bottom: 15px; display: none;">
+                        <p class="selector-label">Select Color:</p>
+                        <select id="highlighter-color-products" class="dropdown-style" onchange="
+                            if (document.getElementById('highlighter-type-products').value === 'single') {
+                                var color = this.value;
+                                var name = 'Kawaii Pastel Highlighter (' + color + ')';
+                                document.getElementById('highlighter-name-products').innerText = name;
+                                document.getElementById('highlighter-btn-products').setAttribute('onclick', `addToCart('highlighter-single-${color.toLowerCase()}', '${name}', 140, 'images/hightlight set.jpg')`);
+                            }
+                        ">
+                            <option value="Purple">Purple</option>
+                            <option value="Green">Green</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Yellow">Yellow</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Pink">Pink</option>
+                        </select>
+                    </div>
+                    <button id="highlighter-btn-products" class="btn-outline add-to-cart-btn" onclick="addToCart('highlighter-set', 'Kawaii Pastel Highlighters (Full Set)', 750, 'images/hightlight set.jpg')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card glass fade-in delay-2 hover-effect">
+                <div class="product-image gallery-container">
+                    <img id="daily-clip-img-products" src="images/normalhairclip.jpg" alt="Minimalist Daily Hair Clip"
+                        class="active-product-img" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Minimalist Daily Hair Clip</h3>
+                        <span class="price-tag">LKR 230</span>
+                    </div>
+                    <p>Designed for your everyday look, these matte aesthetic hair clips are simply perfect for keeping your hair beautiful and secure!</p>
+                    <div class="color-selector">
+                        <p class="selector-label">Select Style:</p>
+                        <div class="swatches">
+                            <div class="color-swatch active" style="background-color: #6a4b59;"
+                                onclick="changeProductImage(this, 'daily-clip-img-products', 'images/normalhairclip.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #d48f7d;"
+                                onclick="changeProductImage(this, 'daily-clip-img-products', 'images/normalhairclip2.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #d4bc3d;"
+                                onclick="changeProductImage(this, 'daily-clip-img-products', 'images/normalhairclip3.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #758b8f;"
+                                onclick="changeProductImage(this, 'daily-clip-img-products', 'images/normalhairclip4.jpg')">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline add-to-cart-btn"
+                        onclick="addToCart('daily-clip', 'Minimalist Daily Hair Clip', 230, 'images/normalhairclip.jpg')">Add
+                        to Cart</button>
+                </div>
+            </div>
+            <div class="product-card glass fade-in delay-3 hover-effect">
+                <div class="product-image gallery-container">
+                    <img id="hair-tie-bottle-img-products" src="images/haitiebottle1.jpg" alt="Aesthetic Hair Tie Magic Bottle"
+                        class="active-product-img" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Aesthetic Hair Tie Magic Bottle</h3>
+                        <span class="price-tag">LKR 300</span>
+                    </div>
+                    <p>Never lose a hair tie again! This beautiful transparent bottle comes packed with aesthetic, high-quality seamless hair ties.</p>
+                    <div class="color-selector">
+                        <p class="selector-label">Select Color Theme:</p>
+                        <div class="swatches">
+                            <div class="color-swatch active" style="background-color: #ff1493;"
+                                onclick="changeProductImage(this, 'hair-tie-bottle-img-products', 'images/haitiebottle1.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #4682b4;"
+                                onclick="changeProductImage(this, 'hair-tie-bottle-img-products', 'images/haitiebottle2.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #6a0dad;"
+                                onclick="changeProductImage(this, 'hair-tie-bottle-img-products', 'images/haitiebottle3.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #8b4513;"
+                                onclick="changeProductImage(this, 'hair-tie-bottle-img-products', 'images/haitiebottle4.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #ffb347;"
+                                onclick="changeProductImage(this, 'hair-tie-bottle-img-products', 'images/haitiebottle5.jpg')">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline add-to-cart-btn"
+                        onclick="addToCart('hair-tie-bottle', 'Aesthetic Hair Tie Magic Bottle', 300, 'images/haitiebottle1.jpg')">Add
+                        to Cart</button>
+                </div>
+            </div>
+            <div class="product-card glass fade-in delay-4 hover-effect">
+                <div class="product-image gallery-container">
+                    <img id="nail-cutter-img-products" src="images/cutenailcutter1.jpg" alt="Kawaii Pocket Nail Clipper"
+                        class="active-product-img" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Kawaii Pocket Nail Clipper</h3>
+                        <span class="price-tag">LKR 200</span>
+                    </div>
+                    <p>Keep your nails perfect on the go! These cute, pastel pocket nail clippers feature lovely aesthetic designs and a convenient keychain ring.</p>
+                    <div class="color-selector">
+                        <p class="selector-label">Select Color Theme:</p>
+                        <div class="swatches">
+                            <div class="color-swatch active" style="background-color: #fca5c9;"
+                                onclick="changeProductImage(this, 'nail-cutter-img-products', 'images/cutenailcutter1.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #a4d9e9;"
+                                onclick="changeProductImage(this, 'nail-cutter-img-products', 'images/cutenailcutter2.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #a291dc;"
+                                onclick="changeProductImage(this, 'nail-cutter-img-products', 'images/cutenailcutter3.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #faa987;"
+                                onclick="changeProductImage(this, 'nail-cutter-img-products', 'images/cutenailcutter4.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #fdf5b1;"
+                                onclick="changeProductImage(this, 'nail-cutter-img-products', 'images/cutenailcutter5.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #a8e6b1;"
+                                onclick="changeProductImage(this, 'nail-cutter-img-products', 'images/cutenailcutter6.jpg')">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline add-to-cart-btn"
+                        onclick="addToCart('nail-cutter', 'Kawaii Pocket Nail Clipper', 200, 'images/cutenailcutter1.jpg')">Add
+                        to Cart</button>
+                </div>
+            </div>
+            <div class="product-card glass fade-in delay-5 hover-effect">
+                <div class="product-image gallery-container">
+                    <img id="water-bottle-img-products" src="images/waterbottle1.jpg" alt="Pastel Perfect Water Bottle"
+                        class="active-product-img" onerror="this.src='images/cute_items_cherry.png'" />
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <h3>Pastel Perfect Water Bottle</h3>
+                        <span class="price-tag">LKR 500</span>
+                    </div>
+                    <p>Stay hydrated with an aesthetic touch! These textured pastel vacuum flasks are perfect for keeping your drinks fresh throughout the day.</p>
+                    <div class="color-selector">
+                        <p class="selector-label">Select Color Theme:</p>
+                        <div class="swatches">
+                            <div class="color-swatch active" style="background-color: #c28b9b;"
+                                onclick="changeProductImage(this, 'water-bottle-img-products', 'images/waterbottle1.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #f3f4f6;"
+                                onclick="changeProductImage(this, 'water-bottle-img-products', 'images/waterbottle2.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #8aa3af;"
+                                onclick="changeProductImage(this, 'water-bottle-img-products', 'images/waterbottle3.jpg')">
+                            </div>
+                            <div class="color-swatch" style="background-color: #8eb4d6;"
+                                onclick="changeProductImage(this, 'water-bottle-img-products', 'images/waterbottle4.jpg')">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-outline add-to-cart-btn"
+                        onclick="addToCart('water-bottle', 'Pastel Perfect Water Bottle', 500, 'images/waterbottle1.jpg')">Add
+                        to Cart</button>
                 </div>
             </div>
         </div>
